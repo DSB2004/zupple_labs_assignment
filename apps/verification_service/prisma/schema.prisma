@@ -18,7 +18,7 @@ datasource db {
 model Issued{
   id String @id @default(uuid())
   userId String
-  credentialType String
+  credentialSecret String
   workerId String
   assignedAt DateTime
   createdAt DateTime @default(now())

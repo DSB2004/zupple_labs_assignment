@@ -1,8 +1,8 @@
-import { IsUUID ,IsString} from 'class-validator';
+import { IsUUID, IsString } from 'class-validator';
 
 export class VerifyDTO {
   @IsString()
-  credentialType: string;
+  credentialSecret: string;
 
   @IsUUID('4')
   userId: string;

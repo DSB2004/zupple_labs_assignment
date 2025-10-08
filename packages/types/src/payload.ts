@@ -1,4 +1,6 @@
 export interface IssuanceKafkaPayload {
-  credentialId: string;
+  assignedAt: string;
+  credentialSecret: string;
+  workerId: string;
   userId: string;
 }

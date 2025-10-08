@@ -5,14 +5,13 @@ import { IssuanceKafkaPayload } from '@zupple_labs_assignment/types';
 @Injectable()
 export class VerifyService {
   async verify(data: VerifyDTO) {
-   
-    const { userId, credentialType } = data;
+    const { userId, credentialSecret } = data;
     const check = await db.issued.findFirst({
       where: {
         userId,
       },
     });
-    if (!check || check.credentialType !== credentialType) {
+    if (!check || check.credentialSecret !== credentialSecret) {
       throw new BadRequestException({
         message: 'Invalid credentials',
       });
@@ -26,11 +25,11 @@ export class VerifyService {
   }
 
   async create(data: IssuanceKafkaPayload) {
-    const { userId, assignedAt, credentialType, workerId } = data;
+    const { userId, assignedAt, credentialSecret, workerId } = data;
     await db.issued.create({
       data: {
         userId,
-        credentialType,
+        credentialSecret,
         assignedAt: new Date(assignedAt),
         workerId,
       },
