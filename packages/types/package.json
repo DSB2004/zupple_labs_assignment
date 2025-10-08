@@ -1,0 +1,17 @@
+{
+  "name": "@zupple_labs_assignment/types",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsup": "^8.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
