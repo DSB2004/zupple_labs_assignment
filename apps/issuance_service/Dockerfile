@@ -6,19 +6,21 @@ RUN apt-get update -y && apt-get install -y openssl
 
 
 COPY package*.json ./
+
+COPY ./packages ./packages
 COPY turbo.json ./
 COPY bun.lock* ./
 
-COPY ./packages ./packages
+
+COPY ./apps/verification_service ./apps/verification_service
 
 
-COPY ./apps/issuance_service ./apps/issuance_service
 
 RUN bun i
 
-RUN bun run prisma generate --schema ./apps/issuance_service/prisma/schema.prisma
+RUN bun run prisma generate --schema ./apps/verification_service/prisma/schema.prisma
 RUN bun run build
 
-EXPOSE 8000
+EXPOSE 8001
 
-CMD ["sh", "-c", "echo '--- Environment Variables ---' && env && echo '-----------------------------' && bun run prisma db push --schema ./apps/issuance_service/prisma/schema.prisma && bun run start"]
+CMD ["sh", "-c", "bun run prisma db push --schema ./apps/verification_service/prisma/schema.prisma && bun run start"]
