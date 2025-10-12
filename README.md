@@ -18,3 +18,10 @@ To get started with this project, follow the setup instructions in the respectiv
 - [`General`](./docs/general.md)
 - [`Setup Instruction`](./docs/setup/index.md)
 - [`API Documentation`](./docs/api/index.md)
+
+## Developer Information
+
+- **Name**: Damanjeet Singh
+- **Email**: damanjeetsingh434@gmail.com
+- **GitHub**: [https://github.com/DSB2004](https://github.com/DSB2004)
+- **LinkedIn**: [https://www.linkedin.com/in/dsb2004/](https://www.linkedin.com/in/dsb2004/)
